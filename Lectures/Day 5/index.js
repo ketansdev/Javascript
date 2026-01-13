@@ -59,3 +59,19 @@
 
 // console.log(Math.floor(Math.random()*10))
 // console.log((Math.random()*10).toPrecision(1))
+
+
+// console.log(Math.floor(Math.random()*6)+1)
+
+//  15 - 25
+
+// console.log(Math.floor(Math.random()*11) + 15)
+
+//  formula
+// Math.floor(Math.random()*(max-min + 1)) + min
+
+
+
+// OTP Generate : 4 digit number
+
+// console.log(Math.floor(Math.random()*(9999-1000+1)+1000))
