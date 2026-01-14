@@ -58,6 +58,48 @@
 // console.log(user.trim())
 
 
-const names = "Ketan, Rahul, Yash, Swapnil, Shubham, Nikhil";
+// const names = "Ketan, Rahul, Yash, Swapnil, Shubham, Nikhil";
 
-console.log(names.split(","))
+// console.log(names.split(","))
+
+
+
+// Date 
+
+// const now = new Date();
+
+// console.log(now);
+// console.log(now.toString());
+// console.log(now.toISOString());
+// console.log(now.toLocaleString());
+
+
+// According to Local time
+// console.log(now.getDay());
+// console.log(now.getDate());
+// console.log(now.getFullYear());
+// console.log(now.getMonth());
+// console.log(now.getHours());
+// console.log(now.getMinutes());
+// console.log(now.getSeconds());
+
+
+// year, month, date, hour, minute, second, millsecond
+// const now = new Date(2026, 0, 14, 7, 3, 32, 125);
+
+// console.log(now);
+// console.log(now.toString());
+
+
+// const now = Date.now();
+
+// const date = new Date(0);
+// console.log(date.toString());
+// console.log(now);
+
+
+// Time stamp
+// const now =Date.now();
+// const date = new Date(now);
+
+// console.log(date);
