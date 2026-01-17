@@ -138,3 +138,63 @@
 
 // const greeting = () => ({name: "Ketan", age: 25})
 // console.log(greeting());
+
+
+
+
+//  IIFE
+
+// (function greeting(){
+//     console.log("Namaste Javascript");
+// })();
+
+
+// (() => {
+//     console.log("Hello");
+// })();
+
+
+
+
+
+//  call back
+
+// function greeting(){
+//     console.log("Namaste Javascript");
+// }
+
+// function practice(){
+//     console.log("I am practicing JS");
+// }
+
+// function learning(callback){
+//     console.log("I am learnimg Javascript");
+//     callback()
+
+//     console.log("I have finished learning JS")
+// }
+
+// learning(greeting);
+// learning(practice);
+
+
+
+
+//
+
+function zomatoOrderPlaced(){
+    console.log("We have started preparing your Zomato order");
+}
+
+function blinkitOrderPlaced(){
+    console.log("We have started packing your blinkit products");
+}
+
+function payment(amount, callback){
+    console.log(`RS ${amount} Received`)
+
+    callback();
+}
+
+payment(1500, zomatoOrderPlaced);
+payment(900, blinkitOrderPlaced);
