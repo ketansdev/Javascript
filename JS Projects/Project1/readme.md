@@ -1,2 +1,2 @@
-## Project 1 - Randome Quote Generator
+## Project 1 - Random Quote Generator
 ![Random Quote Generator](./project-output.png)
