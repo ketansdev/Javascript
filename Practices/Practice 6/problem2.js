@@ -10,5 +10,16 @@
 
 
 const findMissingNumber = function(arr, n){
+    let expectedSum = n * (n + 1)/2;
+
+    let sum = 0
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i];
+    }
+
+    return expectedSum - sum;
     
 }
+
+let result = findMissingNumber([1, 2, 4, 5], 5);
+console.log(result);
