@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quiz Form</h1>
+        <div class="quiz">
+
+            <!-- Question 1 -->
+            <form action="">
+                <div class="question-card">
+                    <h3>1. What does HTML stand for?</h3>
+                    <label><input type="radio" name="q1" value="Hyper Text Markup Language"> Hyper Text Markup
+                        Language</label><br>
+                    <label><input type="radio" name="q1" value="High Text Machine Language"> High Text Machine
+                        Language</label><br>
+                    <label><input type="radio" name="q1" value="Hyperlinks Text Mark Language"> Hyperlinks Text Mark
+                        Language</label><br>
+                    <label><input type="radio" name="q1" value="None of these"> None of these</label>
+                </div>
+
+                <div class="question-card">
+                    <h3>2. Which tag is used for the largest heading?</h3>
+                    <label><input type="radio" name="q2" value="h6"> &lt;h6&gt;</label><br>
+                    <label><input type="radio" name="q2" value="h4"> &lt;h4&gt;</label><br>
+                    <label><input type="radio" name="q2" value="h1"> &lt;h1&gt;</label><br>
+                    <label><input type="radio" name="q2" value="heading"> &lt;heading&gt;</label>
+                </div>
+
+                <div class="question-card">
+                    <h3>3. CSS stands for?</h3>
+                    <label><input type="radio" name="q3" value="Color Style Sheet"> Color Style Sheet</label><br>
+                    <label><input type="radio" name="q3" value="Cascading Style Sheet"> Cascading Style
+                        Sheet</label><br>
+                    <label><input type="radio" name="q3" value="Creative Style Sheet"> Creative Style Sheet</label><br>
+                    <label><input type="radio" name="q3" value="Computer Style Sheet"> Computer Style Sheet</label>
+                </div>
+
+                <div class="question-card">
+                    <h3>4. Which symbol is used for ID selector in CSS?</h3>
+                    <label><input type="radio" name="q4" value="."> .</label><br>
+                    <label><input type="radio" name="q4" value="#"> #</label><br>
+                    <label><input type="radio" name="q4" value="*"> *</label><br>
+                    <label><input type="radio" name="q4" value="&"> &amp;</label>
+                </div>
+
+                <div class="question-card">
+                    <h3>5. Which keyword is used to declare a variable in JavaScript?</h3>
+                    <label><input type="radio" name="q5" value="int"> int</label><br>
+                    <label><input type="radio" name="q5" value="string"> string</label><br>
+                    <label><input type="radio" name="q5" value="var"> var</label><br>
+                    <label><input type="radio" name="q5" value="float"> float</label>
+                </div>
+
+                <br>
+                <button>Submit</button>
+            </form>
+
+            <div class="result-container">
+                <h3 id="result"></h3>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
