@@ -4,27 +4,35 @@ const btn = document.getElementById("fetch-btn");
 btn.addEventListener("click", (e) => {
   e.preventDefault();
   async function github() {
-    const response = await fetch("https://api.github.com/users");
-    const data = await response.json();
-    console.log(data);
+    try {
+      const response = await fetch("https://api.github.com/users");
 
-    for (let user of data) {
-      const userCard = document.createElement("div");
-      userCard.classList.add("user-card");
+      if (!response.ok) {
+        throw new Error("No Data Present");
+      }
+      const data = await response.json();
+      console.log(data);
 
-      const image = document.createElement("img");
-      image.src = user.avatar_url;
+      for (let user of data) {
+        const userCard = document.createElement("div");
+        userCard.classList.add("user-card");
 
-      const userName = document.createElement("h2");
-      userName.innerText = user.login;
+        const image = document.createElement("img");
+        image.src = user.avatar_url;
 
-      const visitProfile = document.createElement("a");
-      visitProfile.href = user.html_url;
-    //   visitProfile.target = "_blank";
-      visitProfile.innerText = "Visiti Github Profie";
+        const userName = document.createElement("h2");
+        userName.innerText = user.login;
 
-      userCard.append(image, userName, visitProfile);
-      container.append(userCard);
+        const visitProfile = document.createElement("a");
+        visitProfile.href = user.html_url;
+        //   visitProfile.target = "_blank";
+        visitProfile.innerText = "Visiti Github Profie";
+
+        userCard.append(image, userName, visitProfile);
+        container.append(userCard);
+      }
+    } catch (error) {
+      console.log("error");
     }
   }
 
