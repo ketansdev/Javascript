@@ -92,6 +92,7 @@ function handleForm(e) {
 
   if (!savedUser) {
     alert("No account Found, Please Sign up first");
+    return; 
   }
 
   if (
@@ -103,6 +104,7 @@ function handleForm(e) {
     form.reset();
   } else {
     alert("Invalid Email or Password");
+    form.reset();
   }
 
   setTimeout(() => {
