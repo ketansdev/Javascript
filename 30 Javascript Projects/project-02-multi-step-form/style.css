@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #022ba6;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.container {
+  width: 350px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.progress-container {
+  width: 100%;
+  height: 7px;
+  background-color: #dde0e6;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+#progress-bar{
+    height: 100%;
+    border-radius: 10px;
+}
+
+.step.active {
+  display: block;
+}
+
+.step {
+  margin: 20px 0;
+  font-size: 13px;
+  display: none;
+}
+
+.step label {
+  display: block;
+  margin: 5px 0;
+}
+
+.step input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(197, 195, 195);
+  border-radius: 5px;
+
+  margin: 10px 0;
+}
+
+.step input:focus {
+  border-color: #022ba6;
+  outline: none;
+}
+
+.error-msg {
+  display: none;
+  color: red;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#prev-btn,
+#next-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #041035;
+  color: #fff;
+  border-radius: 7px;
+}
+
+#prev-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+#next-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
