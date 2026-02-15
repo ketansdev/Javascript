@@ -98,3 +98,16 @@
 // demo(function(){
 //     console.log("Hello");
 // })
+
+
+// function test(a = b, b = 2) {
+//     console.log(a, b);
+// }
+// test();
+
+
+
+function test(b = 2, a = b) {
+    console.log(a, b);
+}
+test();
