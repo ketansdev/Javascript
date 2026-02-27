@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project = Profile Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="create-profile">
+            <h1>Create Profile</h1>
+            <div class="form-container">
+                    <input type="text" placeholder="Full Name" id="name">
+                    <input type="text" placeholder="Role / Profession" id="role">
+                    <input type="text" placeholder="Profile Image Url" id="image">
+                    <textarea name="" id="bio" placeholder="Short Bio" rows="8"></textarea>
+
+                    <button id="btn">Generate Profile</button>
+            </div>
+        </div>
+
+        <div class="profile-card hidden">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="profile image" id="profile-image">
+            <h2 id="profile-name">Ketan Shetge</h2>
+            <p id="profile-role">Software Engineer</p>
+            <p id="profile-bio">I am an ENgineer</p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
