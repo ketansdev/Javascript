@@ -2,6 +2,7 @@ const addBtn = document.getElementById("add-comment-btn");
 const updateBtn = document.getElementById("update-comment-btn");
 const input = document.getElementById("comment-input");
 const comments = document.querySelector(".comments");
+let currentSpan = null;
 
 function addComment() {
   if (!input.value) {
@@ -21,12 +22,8 @@ function addComment() {
     `;
   comments.append(div);
 
-  //   const editBtn = div.querySelector(".edit-btn");
-  const comment = document.getElementById("comment");
-
   const deleteBtn = document.querySelectorAll(".del-btn");
   const editBtn = div.querySelectorAll(".edit-btn");
-  let currentSpan = null;
 
   //    edit comment
   editBtn.forEach((btn) => {
@@ -40,15 +37,6 @@ function addComment() {
   });
 
   //    update comment
-  updateBtn.addEventListener("click", () => {
-    console.log("currentspan", currentSpan);
-    if (currentSpan) {
-      currentSpan.textContent = input.value;
-      updateBtn.style.display = "none";
-      addBtn.style.display = "block";
-      input.value = "";
-    }
-  });
 
   //    delete comment
 
@@ -60,5 +48,14 @@ function addComment() {
 
   input.value = "";
 }
+
+updateBtn.addEventListener("click", () => {
+  if (currentSpan) {
+    currentSpan.textContent = input.value;
+    updateBtn.style.display = "none";
+    addBtn.style.display = "block";
+      input.value = "";
+  }
+});
 
 addBtn.addEventListener("click", addComment);
