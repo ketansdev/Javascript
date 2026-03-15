@@ -107,6 +107,12 @@ body {
   color: var(--text-primary);
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 /* navbar */
 
 .nav {
@@ -114,6 +120,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: var(--padding-card);
+  background-color: var(--bg-sidebar);
 }
 
 .nav .nav-items {
@@ -150,4 +157,26 @@ body {
   border-radius: var(--radius-md);
   background-color: var(--accent);
   color: var(--text-primary);
+}
+
+
+/* section */
+
+.board{
+    background-color: var(--bg-board);
+    flex-grow: 1;
+    display: flex;
+    gap: 1rem;
+    padding: var(--padding-card);
+    margin: var(--space-6);
+}
+
+.column{
+    background-color: var(--bg-column);
+    border: var(--border-subtle);
+    border-radius: var(--radius-lg);
+    height: 100%;
+    width: 100%;
+    padding: var(--padding-column);
+    
 }
