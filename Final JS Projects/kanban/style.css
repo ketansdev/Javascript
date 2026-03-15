@@ -166,7 +166,7 @@ main{
     background-color: var(--bg-board);
     flex-grow: 1;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     padding: var(--padding-card);
     margin: var(--space-6);
 }
