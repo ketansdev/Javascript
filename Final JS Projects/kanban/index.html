@@ -22,9 +22,31 @@
         </nav>
 
         <section class="board">
-            <div class="column"></div>
-            <div class="column"></div>
-            <div class="column"></div>
+            <div class="column" id="backlog">
+                <nav>
+                    <span>Backlog</span>
+                    <span>Count</span>
+                </nav>
+                <div class="task-column">
+                    <div class="task" draggable="true">
+                        <h2>Heading</h2>
+                        <p>Description</p>
+                        <button>Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column" id="progress">
+                <nav>
+                    <span>In Progress</span>
+                    <span>Count</span>
+                </nav>
+            </div>
+            <div class="column" id="done">
+                <nav>
+                    <span>Done</span>
+                    <span>Count</span>
+                </nav>
+            </div>
 
         </section>
     </main>

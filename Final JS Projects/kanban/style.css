@@ -9,6 +9,7 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+
 }
 
 :root {
@@ -98,6 +99,11 @@
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.6);
   --shadow-drag: 0 12px 40px rgba(0, 0, 0, 0.7);
+
+   /* --- Delete / Danger Button --- */
+  --btn-delete-solid-bg:       #dc2626;
+  --btn-delete-solid-bg-hover: #b91c1c;
+  --btn-delete-solid-text:     #fff0f0;
 }
 
 body {
@@ -125,6 +131,7 @@ main{
 
 .nav .nav-items {
   width: 100%;
+  margin: 0 var(--space-6);
 }
 
 .nav .nav-right {
@@ -178,5 +185,66 @@ main{
     height: 100%;
     width: 100%;
     padding: var(--padding-column);
-    
+    cursor: default;
+}
+
+
+
+.column nav{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-card);
+}
+
+
+/* cards */
+
+.task-column{
+    padding: var(--padding-column);
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hover-over{
+    border: 1px solid var(--border-strong);
+    scale: 1.05;
+}
+
+.task{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    padding: var(--padding-column);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    cursor: grab;
+}
+
+.task:active {
+  cursor: grabbing;
+}
+
+.dragging{
+  opacity: 0.7;
+  transform: rotate(2deg);
+}
+
+.card:hover{
+    background-color: var(--bg-card-hover);
+}
+
+.task button{
+    align-self: self-end;
+    background-color: var(--btn-delete-solid-bg);
+    border: none;
+    color: var(--text-primary);
+    padding: var(--padding-card);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+.task button:hover{
+    background-color: var(--btn-delete-solid-bg-hover);
+    color: var(--btn-delete-solid-text);
 }
