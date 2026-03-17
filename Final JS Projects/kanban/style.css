@@ -9,7 +9,6 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-
 }
 
 :root {
@@ -100,10 +99,18 @@
   --shadow-modal: 0 8px 32px rgba(0, 0, 0, 0.6);
   --shadow-drag: 0 12px 40px rgba(0, 0, 0, 0.7);
 
-   /* --- Delete / Danger Button --- */
-  --btn-delete-solid-bg:       #dc2626;
+  /* --- Delete / Danger Button --- */
+  --btn-delete-solid-bg: #dc2626;
   --btn-delete-solid-bg-hover: #b91c1c;
-  --btn-delete-solid-text:     #fff0f0;
+  --btn-delete-solid-text: #fff0f0;
+}
+
+button {
+  border: none;
+  padding: var(--padding-card);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  cursor: pointer;
 }
 
 body {
@@ -113,10 +120,10 @@ body {
   color: var(--text-primary);
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 /* navbar */
@@ -159,92 +166,142 @@ main{
 }
 
 .nav .nav-right button {
-  border: none;
-  padding: var(--padding-card);
-  border-radius: var(--radius-md);
   background-color: var(--accent);
-  color: var(--text-primary);
 }
 
+/* modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0; /* top, right, bottom, left sab 0 */
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  opacity: 0; /* default hidden */
+  pointer-events: none; /* click block nahi karega jab hidden ho */
+  transition: opacity var(--transition-base);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all; /* active hone pe click allow */
+}
+
+.modal {
+  width: min(500px, 90%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  background-color: var(--bg-modal);
+  padding: var(--padding-modal);
+  border-radius: var(--radius-md);
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: var(--border-default);
+  padding: var(--padding-card);
+  border-radius: var(--radius-md);
+  outline: none;
+  color: var(--text-secondary);
+}
+
+.modal-buttons #modal-cancel {
+  background-color: var(--btn-delete-solid-bg);
+}
+
+.modal-buttons #modal-add {
+  background-color: var(--accent);
+}
 
 /* section */
 
-.board{
-    background-color: var(--bg-board);
-    flex-grow: 1;
-    display: flex;
-    gap: 2rem;
-    padding: var(--padding-card);
-    margin: var(--space-6);
+.board {
+  background-color: var(--bg-board);
+  flex-grow: 1;
+  display: flex;
+  gap: 2rem;
+  padding: var(--padding-card);
+  margin: var(--space-6);
 }
 
-.column{
-    background-color: var(--bg-column);
-    border: var(--border-subtle);
-    border-radius: var(--radius-lg);
-    height: 100%;
-    width: 100%;
-    padding: var(--padding-column);
-    cursor: default;
+.column {
+  background-color: var(--bg-column);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  height: 100%;
+  width: 100%;
+  padding: var(--padding-column);
+  cursor: default;
 }
 
-
-
-.column nav{
-    display: flex;
-    justify-content: space-between;
-    padding: var(--padding-card);
+.column nav {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding-card);
 }
-
 
 /* cards */
 
-.task-column{
-    padding: var(--padding-column);
-    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+.task-column {
+  padding: var(--padding-column);
+  transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.hover-over{
-    border: 1px solid var(--border-strong);
-    scale: 1.05;
+.hover-over {
+  border: 1px solid var(--border-strong);
+  scale: 1.05;
 }
 
-.task{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    padding: var(--padding-column);
-    border-radius: var(--radius-md);
-    transition: all 0.2s ease;
-    cursor: grab;
+.task {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: var(--padding-column);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  cursor: grab;
 }
 
 .task:active {
   cursor: grabbing;
 }
 
-.dragging{
+.dragging {
   opacity: 0.7;
   transform: rotate(2deg);
 }
 
-.card:hover{
-    background-color: var(--bg-card-hover);
+.card:hover {
+  background-color: var(--bg-card-hover);
 }
 
-.task button{
-    align-self: self-end;
-    background-color: var(--btn-delete-solid-bg);
-    border: none;
-    color: var(--text-primary);
-    padding: var(--padding-card);
-    border-radius: var(--radius-md);
-    cursor: pointer;
+.task button {
+  align-self: self-end;
+  background-color: var(--btn-delete-solid-bg);
 }
 
-.task button:hover{
-    background-color: var(--btn-delete-solid-bg-hover);
-    color: var(--btn-delete-solid-text);
+.task button:hover {
+  background-color: var(--btn-delete-solid-bg-hover);
+  color: var(--btn-delete-solid-text);
+}
+
+#backlog .task {
+  border-left: 3px solid var(--status-blocked);
+}
+
+#progress .task {
+  border-left: 3px solid var(--accent);
+}
+
+#done .task {
+  border-left: 3px solid var(--status-done);
 }
