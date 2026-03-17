@@ -1,28 +1,9 @@
-// no fade on drag
-
-// const cards = document.querySelectorAll(".card");
-
-// cards.forEach(card => {
-//   card.addEventListener("dragstart", (e) => {
-
-//     const clone = card.cloneNode(true);
-
-//     clone.style.position = "absolute";
-//     clone.style.top = "-9999px";
-//     clone.style.left = "-9999px";
-//     clone.style.opacity = "1";
-
-//     document.body.appendChild(clone);
-
-//     e.dataTransfer.setDragImage(clone, 0, 0);
-//   });
-// });
-
 const backlog = document.querySelector("#backlog");
 const progress = document.querySelector("#progress");
 const done = document.querySelector("#done");
 const addTask = document.querySelector("#add-task-btn");
 const tasks = document.querySelectorAll(".task");
+const taskColumn = document.querySelectorAll(".delete-btn");
 const overlay = document.querySelector("#modal-overlay");
 
 let draggedTask = null;
@@ -42,12 +23,26 @@ function showModal() {
     </div>
   `;
 
-  overlay.classList.add("active"); // 👈 show karo
+  overlay.classList.add("active");
 
   // cancel button
   overlay.querySelector("#modal-cancel").addEventListener("click", closeModal);
 
-  // overlay pe click karo toh band ho jaye
+  //   submit
+  overlay.querySelector("#modal-add").addEventListener("click", () => {
+    const title = overlay.querySelector("input").value.trim();
+    const description = overlay.querySelector("textarea").value.trim();
+
+    if (!title) return;
+
+    const card = createTask(title, description);
+    backlog.querySelector(".task-column").appendChild(card);
+
+    updateCount();
+    closeModal();
+  });
+
+  // close modal on clicking overlay
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) closeModal();
   });
@@ -55,6 +50,29 @@ function showModal() {
 
 function closeModal() {
   overlay.classList.remove("active");
+}
+
+function createTask(title, description) {
+  const card = document.createElement("div");
+  card.classList.add("task");
+  card.draggable = true;
+  card.innerHTML = `
+        <h2>${title}</h2>
+        <p>${description}</p>
+        <button class="delete-btn">Delete</button>
+    `;
+
+  card.querySelector(".delete-btn").addEventListener("click", () => {
+    card.remove();
+    updateCount();
+  });
+
+  // drag events bhi lagao naye card pe
+  card.addEventListener("dragstart", () => {
+    draggedTask = card;
+  });
+
+  return card;
 }
 
 function updateCount() {
@@ -97,7 +115,7 @@ function addDragEventsOnColumn(column) {
   });
 
   column.addEventListener("dragover", (e) => {
-    e.preventDefault(); // 👈 this is the key line
+    e.preventDefault();
   });
 
   column.addEventListener("drop", () => {
@@ -113,5 +131,4 @@ addDragEventsOnColumn(progress);
 addDragEventsOnColumn(done);
 
 updateCount();
-
 addTask.addEventListener("click", showModal);
