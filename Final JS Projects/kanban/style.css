@@ -126,6 +126,8 @@ main {
   height: 100vh;
 }
 
+
+
 /* navbar */
 
 .nav {
@@ -255,7 +257,31 @@ main {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
+
+/* scroll styling  */
+
+.task-column::-webkit-scrollbar {
+  width: 4px;
+}
+
+.task-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.task-column::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-pill);
+}
+
+.task-column::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+/*  */
 
 .hover-over {
   border: 1px solid var(--border-strong);
@@ -272,6 +298,46 @@ main {
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
   cursor: grab;
+  position: relative;
+}
+
+
+.task .edit-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: opacity var(--transition-fast);
+  background: transparent;
+  padding: 0;
+  align-self: unset;
+}
+
+.task .edit-btn:hover {
+  opacity: 1;
+  background: none;
+}
+
+
+#modal-save {
+  background-color: var(--status-done); 
+  color: #000;
+}
+
+#modal-save:hover {
+  background-color: var(--priority-low);
+}
+
+.task h2{
+    font-size: 19px;
+}
+
+.task p{
+    font-size: 15px;
 }
 
 .task:active {
@@ -308,3 +374,36 @@ main {
 #done .task {
   border-left: 3px solid var(--status-done);
 }
+
+
+
+.task.glow {
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 8px var(--accent); /* 👈 blue glow */
+}
+
+
+/* toast  */
+
+#toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+/* types */
+#toast.success { background: var(--status-done);    color: #000; }
+#toast.delete  { background: var(--status-blocked); color: #fff; }
+#toast.save    { background: var(--accent);          color: #fff; }
