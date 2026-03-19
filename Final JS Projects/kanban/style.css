@@ -407,3 +407,48 @@ main {
 #toast.success { background: var(--status-done);    color: #000; }
 #toast.delete  { background: var(--status-blocked); color: #fff; }
 #toast.save    { background: var(--accent);          color: #fff; }
+
+
+
+
+/* Responsive */
+
+@media screen and (max-width:1100px){
+  .board{
+    flex-wrap: wrap;
+  }
+
+  .column{
+    height: auto;
+  }
+
+  .nav h1{
+    font-size: 1.8rem;
+  }
+
+  .nav .nav-center input {
+  width: 100%;
+  padding: 6px;
+}
+
+.nav-right button{
+  padding: 6px;
+}
+
+  
+}
+
+@media  screen and (max-width:570px) {
+  #add-task-btn span{
+    display: none;
+  }
+
+  .nav-right button{
+  padding: 5px 12px;
+}
+
+   .nav h1{
+    font-size: 1.2rem;
+  }
+  
+}
