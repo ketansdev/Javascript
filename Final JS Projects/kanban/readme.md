@@ -1,6 +1,6 @@
 A drag-and-drop task management app built with vanilla HTML, CSS, and JavaScript.
  
-🔗 **Live Demo:** [https://warm-cranachan-ded114.netlify.app](#)
+🔗 **Live Demo:** [Kanban Project](https://warm-cranachan-ded114.netlify.app)
  
 ---
  
