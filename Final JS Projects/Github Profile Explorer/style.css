@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* -----------------------------------------------
+     BACKGROUNDS
+     Use these for different surface "levels"
+     Think of it like layers — page → card → input
+  ----------------------------------------------- */
+  --bg-page: #0d1117; /* outermost — whole page background */
+  --bg-card: #161b22; /* cards, panels, sidebars */
+  --bg-card-hover: #1c2128; /* card on hover */
+  --bg-input: #161b22; /* input fields, textareas, selects */
+  --bg-badge: #21262d; /* small badges, tags, chips */
+  --bg-overlay: #010409; /* modals, drawers backdrop */
+  --bg-navbar: #161b22; /* navbar*/
+
+  /* -----------------------------------------------
+     TEXT COLORS
+     Use these for different text importance levels
+  ----------------------------------------------- */
+  --text-primary: #e6edf3; /* main text — headings, body */
+  --text-secondary: #8b949e; /* subtext — descriptions, labels */
+  --text-muted: #484f58; /* faded — placeholders, timestamps */
+  --text-link: #58a6ff; /* clickable links, usernames */
+  --text-link-hover: #79c0ff; /* link on hover */
+  --text-inverse: #0d1117; /* text ON a light/colored background */
+  --text-danger: #f85149; /* error messages */
+  --text-success: #3fb950; /* success messages */
+  --text-warning: #d29922; /* warning messages */
+
+  /* -----------------------------------------------
+     BORDER COLORS
+     Use these for lines, dividers, outlines
+  ----------------------------------------------- */
+  --border-default: #21262d; /* default card/element border */
+  --border-muted: #161b22; /* very subtle dividers */
+  --border-emphasis: #30363d; /* slightly stronger border */
+  --border-focus: #58a6ff; /* input/button on focus */
+  --border-danger: #f85149; /* error state border */
+  --border-success: #3fb950; /* success state border */
+
+  /* -----------------------------------------------
+     ACCENT / BRAND COLORS
+     Blue is GitHub's primary — use for CTAs, highlights
+  ----------------------------------------------- */
+  --accent-primary: #1f6feb; /* primary button bg, main CTA */
+  --accent-hover: #388bfd; /* primary button on hover */
+  --accent-active: #1158c7; /* primary button on click */
+  --accent-subtle: #0d419d; /* very subtle blue tint areas */
+  --accent-glow: #58a6ff; /* usernames, repo names, badges */
+
+  /* -----------------------------------------------
+     STATUS COLORS
+     For feedback — errors, success, warnings, info
+  ----------------------------------------------- */
+  --color-danger: #da3633; /* error bg (destructive action) */
+  --color-danger-bg: #67060c; /* error background */
+  --color-success: #2ea043; /* success / verified / active */
+  --color-success-bg: #033a16; /* success background */
+  --color-warning: #d29922; /* caution / pending */
+  --color-warning-bg: #4b2900; /* warning background */
+  --color-info: #58a6ff; /* informational */
+  --color-info-bg: #0c2d6b; /* info background */
+
+  /* -----------------------------------------------
+     TYPOGRAPHY
+     Font families — import from Google Fonts
+  ----------------------------------------------- */
+  --font-mono:
+    "JetBrains Mono", "Courier New", monospace; /* code, UI labels, nav */
+  --font-sans: "Inter", system-ui, sans-serif; /* body text, descriptions */
+
+  /* -----------------------------------------------
+     FONT SIZES
+     Use consistent scale — don't use random px values
+  ----------------------------------------------- */
+  --text-xs: 10px; /* tiny labels, timestamps */
+  --text-sm: 12px; /* secondary info, badges */
+  --text-base: 14px; /* default body text */
+  --text-md: 16px; /* slightly bigger body */
+  --text-lg: 20px; /* sub-headings */
+  --text-xl: 24px; /* section headings */
+  --text-2xl: 32px; /* hero titles */
+  --text-3xl: 48px; /* big display headings */
+
+  /* -----------------------------------------------
+     FONT WEIGHTS
+     Keep it simple — only 3 weights
+  ----------------------------------------------- */
+  --weight-normal: 400; /* regular paragraph text */
+  --weight-medium: 500; /* labels, card names */
+  --weight-bold: 700; /* headings, logo, emphasis */
+
+  /* -----------------------------------------------
+     SPACING
+     Use these for margin, padding, gap
+     Never hardcode random values — use these
+  ----------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* -----------------------------------------------
+     BORDER RADIUS
+     For rounded corners on elements
+  ----------------------------------------------- */
+  --radius-sm: 4px; /* small — badges, chips, code */
+  --radius-md: 8px; /* default — buttons, inputs */
+  --radius-lg: 10px; /* cards, panels */
+  --radius-xl: 14px; /* big cards, modals */
+  --radius-full: 9999px; /* pills, avatars, tags */
+
+  /* -----------------------------------------------
+     TRANSITIONS
+     For smooth hover/focus animations
+  ----------------------------------------------- */
+  --transition-fast: all 0.1s ease; /* instant feedback — buttons */
+  --transition-default: all 0.2s ease; /* default hover effects */
+  --transition-slow: all 0.35s ease; /* page transitions, reveals */
+
+  /* -----------------------------------------------
+     SHADOWS
+     Subtle depth — don't overuse in dark theme
+  ----------------------------------------------- */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4); /* tiny lift */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5); /* card hover lift */
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6); /* modal, drawer */
+  --shadow-focus: 0 0 0 3px rgba(88, 166, 255, 0.3); /* focus ring — inputs */
+
+  /* -----------------------------------------------
+     Z-INDEX LAYERS
+     So nothing ever randomly overlaps
+  ----------------------------------------------- */
+  --z-base: 1; /* default elements */
+  --z-dropdown: 100; /* dropdowns, tooltips */
+  --z-sticky: 200; /* sticky navbar */
+  --z-modal: 300; /* modals, drawers */
+  --z-toast: 400; /* toast notifications (top of everything) */
+
+  /* -----------------------------------------------
+     LAYOUT
+     Max widths for different content areas
+  ----------------------------------------------- */
+  --max-width-sm: 480px; /* search bar, small containers */
+  --max-width-md: 768px; /* blog posts, narrow pages */
+  --max-width-lg: 1100px; /* main content area */
+  --max-width-xl: 1400px; /* full wide layouts */
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Top bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+}
+
+.nav-logo {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo svg {
+  color: var(--accent-glow);
+}
+
+.nav-logo svg:hover {
+  cursor: pointer;
+  color: var(--accent-hover);
+}
+
+.top-right-text span {
+  color: var(--text-muted);
+}
+
+/* Navbar */
+
+nav {
+  width: 100%;
+  background-color: var(--bg-navbar);
+  padding: var(--space-8);
+  border: 1px solid var(--border-emphasis);
+}
+
+nav .nav-buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-buttons button {
+  cursor: pointer;
+  border: none;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-bold);
+  transition: var(--transition-fast);
+}
+
+/* Main */
+
+/* hero section */
+
+.hero {
+  padding: var(--space-12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--border-emphasis);
+}
+
+.hero .hero-content {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-8);
+  margin: var(--space-4);
+}
+
+.hero .hero-content p {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-weight: var(--weight-bold);
+}
+
+.hero .hero-content h1 {
+  font-size: var(--text-3xl);
+}
+
+.hero .hero-content h1 span {
+  display: block;
+  text-align: center;
+  color: var(--text-link);
+}
+
+.hero .hero-content .search {
+  width: 100%;
+  border: 1px solid var(--border-emphasis);
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+}
+
+.hero .hero-content .search:focus-within {
+  border: 1px solid var(--border-focus);
+}
+
+.hero .hero-content .search .search-icon {
+  color: var(--text-muted);
+  font-size: var(--text-2xl);
+  margin: var(--space-2);
+}
+
+.hero .hero-content .search input {
+  padding: var(--space-3);
+  flex: 1;
+  font-family: var(--font-mono);
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  outline: none;
+  border: none;
+}
+
+.hero .hero-content .search button {
+  padding: var(--space-3);
+  cursor: pointer;
+  background-color: var(--accent-glow);
+  color: var(--text-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  border: none;
+}
