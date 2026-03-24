@@ -392,6 +392,28 @@ nav .nav-buttons {
     background-color: var(--bg-overlay);
 }
 
+
+/* Footer */
+
+footer{
+    width: 100%;
+    border-top: 1px solid var(--border-emphasis);
+    padding: var(--space-4);
+    text-align: center;
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--space-6);
+}
+
+footer a{
+    text-decoration: none;
+    font-family: var(--font-mono);
+    color: var(--accent-primary);
+    
+}
+
 /* Responsive Nav */
 
 @media screen and (max-width: 400px) {
