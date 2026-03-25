@@ -1,4 +1,6 @@
 const profiles = document.querySelector(".main-developer-profiles");
+const homeScreenBtn = document.querySelector("#home-screen-btn");
+const profileScreenBtn = document.querySelector("#profile-screen-btn");
 
 async function loadDefaultProfiles() {
   const url = "https://api.github.com/users";
@@ -28,4 +30,16 @@ async function loadDefaultProfiles() {
   }
 }
 
+function displayHomeScreen() {
+ document.querySelector(".default-profiles").style.display = "block";
+}
+
+
+function displayProfileScreen(){
+   document.querySelector(".default-profiles").style.display = "none";
+}
+
 loadDefaultProfiles();
+
+homeScreenBtn.addEventListener("click", displayHomeScreen);
+profileScreenBtn.addEventListener("click", displayProfileScreen)

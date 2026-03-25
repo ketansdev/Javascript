@@ -162,6 +162,10 @@ body {
   background-color: var(--bg-page);
   color: var(--text-primary);
   font-family: var(--font-sans);
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Top bar */
@@ -231,6 +235,10 @@ nav .nav-buttons {
 }
 
 /* Main */
+
+main{
+  flex: 1;
+}
 
 /* hero section */
 
