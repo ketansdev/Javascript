@@ -401,6 +401,21 @@ main{
 }
 
 
+
+/* Profile Screen Section  */
+
+.searched-profiles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.profile-message{
+  color: #D91E1E;
+  font-size: var(--text-md);
+}
+
 /* Footer */
 
 footer{
