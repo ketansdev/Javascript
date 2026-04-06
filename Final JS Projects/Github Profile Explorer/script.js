@@ -3,9 +3,10 @@ const homeScreenBtn = document.querySelector("#home-screen-btn");
 const profileScreenBtn = document.querySelector("#profile-screen-btn");
 const searchBtn = document.querySelector("#search-btn");
 const profileScreen = document.querySelector(".searched-profiles");
+const homeScreen = document.querySelector(".default-profiles");
 const loadingText = document.querySelector(".loading");
-
-// loadingText.style.display = "none";
+const profileMessage = document.querySelector(".profile-message");
+const input = document.getElementById("search-input");
 
 async function loadDefaultProfiles() {
   const url = "https://api.github.com/users";
@@ -36,30 +37,42 @@ async function loadDefaultProfiles() {
 }
 
 function displayHomeScreen() {
+  if (document.querySelector(".searched-profile-card")) {
+    document.querySelector(".searched-profile-card").style.display = "none";
+  }
   document.querySelector(".default-profiles").style.display = "block";
   homeScreenBtn.textContent = "Home Screen";
   profileScreenBtn.style.display = "block";
-  clearDefault();
 }
 
 function displayProfileScreen() {
   document.querySelector(".default-profiles").style.display = "none";
   homeScreenBtn.textContent = "Back to Home Screen";
   profileScreenBtn.style.display = "none";
-  let profileMessage = document.createElement("div");
-  profileMessage.classList.add("profile-message");
-loadingText.style.display = "none";
-  profileMessage.textContent =
-    "No profile to display , search your profile above";
-  profileScreen.append(profileMessage);
+  profileMessage.style.display = "block";
 }
 
-function clearDefault() {
-  profileScreen.innerHTML = "";
+function clearHomeScreen() {
+  homeScreen.style.display = "none";
+  // profileMessage.style.display = "none";
+}
+
+function clearLoadingText() {
+  loadingText.style.display = "none";
+}
+
+function clearInput() {
+  input.value = "";
+}
+
+function clearProfileMessage() {
+  profileMessage.style.display = "none";
 }
 
 async function displayProfile(username) {
- 
+  clearInput();
+  displayProfileScreen();
+  clearProfileMessage();
   const url = `https://api.github.com/users/${username}`;
   try {
     const response = await fetch(url);
@@ -102,7 +115,6 @@ async function displayProfile(username) {
                     
     `;
 
-    // profiles.append(card);
     profileScreen.append(card);
   } catch (error) {
     console.log(error.message);
@@ -112,11 +124,20 @@ async function displayProfile(username) {
 loadDefaultProfiles();
 
 homeScreenBtn.addEventListener("click", displayHomeScreen);
+
 profileScreenBtn.addEventListener("click", displayProfileScreen);
+
 searchBtn.addEventListener("click", () => {
-  clearDefault()
-  const input = document.getElementById("search-input");
+  const cards = document.querySelectorAll(".searched-profile-card");
+  cards.forEach((card) => {
+    card.style.display = "none";
+  });
+  document.querySelector(".input-error-message").style.display = "none";
   const profileUserName = input.value;
+  if (!profileUserName) {
+    document.querySelector(".input-error-message").style.display = "block";
+    loadingText.style.display = "none";
+    return;
+  }
   displayProfile(profileUserName);
-  
 });
