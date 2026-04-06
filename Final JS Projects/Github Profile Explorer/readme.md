@@ -4,6 +4,11 @@ A responsive web application that allows users to search and view GitHub profile
 
 ---
 
+## 🚀 Live Demo
+[Github Profile Checker](https://github-profile-name-checker.netlify.app/)
+
+---
+
 ## 📌 Features
 
 - 🔍 Search GitHub users by username  
