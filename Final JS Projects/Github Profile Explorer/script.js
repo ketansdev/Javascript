@@ -54,7 +54,6 @@ function displayProfileScreen() {
 
 function clearHomeScreen() {
   homeScreen.style.display = "none";
-  // profileMessage.style.display = "none";
 }
 
 function clearLoadingText() {
@@ -117,7 +116,9 @@ async function displayProfile(username) {
 
     profileScreen.append(card);
   } catch (error) {
-    console.log(error.message);
+    console.log("error",error.message);
+    profileMessage.style.display = "block";
+    profileMessage.textContent = "Profile Not Found";
   }
 }
 
