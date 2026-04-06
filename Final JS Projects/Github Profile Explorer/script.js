@@ -37,9 +37,10 @@ async function loadDefaultProfiles() {
 }
 
 function displayHomeScreen() {
-  if (document.querySelector(".searched-profile-card")) {
-    document.querySelector(".searched-profile-card").style.display = "none";
-  }
+  const cards = document.querySelectorAll(".searched-profile-card");
+  cards.forEach((card) => {
+    card.style.display = "none";
+  });
   document.querySelector(".default-profiles").style.display = "block";
   homeScreenBtn.textContent = "Home Screen";
   profileScreenBtn.style.display = "block";
